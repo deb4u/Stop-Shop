@@ -1,0 +1,381 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="style.css" type="text/css">
+		<link rel="stylesheet" type="text/css" href="style2.css">
+		<style>
+.modal {
+    display: none;  
+    position: fixed; 
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+}
+.login_page{
+	width: 300px;
+	height: auto;
+	position: absolute;
+	padding: 10px 25px;
+	background: #eee;
+	left: 50%;
+	top: 50%;
+	transform: translateX(-50%) translateY(-70%);
+	border-bottom: 5px solid gray;
+	border-radius: 4px;
+}
+
+.login_logo{
+	width: 100px;
+	height: 100px;
+	position: relative;
+	background: skyblue;
+	border-radius: 100px;
+	margin: 0 auto;
+	margin-top:40px;
+}
+.login_logo>img{
+	width: 100px;
+	height: 100px;
+	overflow: hidden;
+}
+.form
+{
+	width: 100%;
+	position: relative;
+	margin: 25px auto;
+}
+.input
+{
+	width: 100%;
+	height: 50px;
+	position: relative;
+	margin: 15px auto;
+}
+input[type="text"],
+input[type="password"]{
+	width: 100%;
+	height: 50px;
+	padding-right:0;
+	padding-left:10px; 
+	margin: -2px -4px;
+	position: relative;
+	outline: none;
+	border:2px solid #ddd;
+	border-radius: 5px;
+	font-size: 16px;
+	font-family: sans-serif,Arial;
+	color: gray;
+}
+.fa{
+	position: absolute;
+	right: 5px;
+	top: 16px;
+	font-size: 20px;
+	color: gray;
+}
+input[type="text"]:focus,input[type="password"]:focus
+{
+	border:2px solid #F95E11;
+}
+input[type="submit"]
+{
+	width: 100%;
+	height: 50px;
+	background: #F95E11;
+	font-family: sans-serif,Arial;
+	font-size: 16px;
+	color: #fff;    
+	outline: none;
+	border-radius: 5px;
+	border: 0px;
+	cursor: pointer;
+}
+.error-msg{
+	font-size: 16px;
+	font-family: sans-serif,Arial;
+	color: red;
+	margin-top:50px;
+	display: none;
+}
+.error{
+	position: relative;
+	animation : shake 0.2s;
+}
+.closebtn
+{
+	height: 35px;
+	width: 35px;
+	right: 34px;
+	background-color: #eee;
+	text-align: center;
+    float: right;
+    padding: 0px -23px;
+ 
+
+}
+.closebtn a{
+	text-decoration: none;
+	font-size:27px;
+	font-family:'Arial';
+	color: black;
+	padding: 10px 8px;
+	
+}
+.closebtn a:hover{
+    background-color: grey;
+    height: 35px;
+    width: 35px;
+	font-size:30px;
+	padding: 2px 7px;
+	
+}
+@keyframes shake{
+	0% , 100%{
+		left: 0px;
+	}
+	20% , 80%{
+		left: -15px;
+	}
+	40% , 60%{
+		left:15px;
+	}
+	
+	
+}
+
+.clock{
+	margin: -292px 0px;
+	width: 300px;
+	height: 250px;
+}
+.clock img 
+{
+	width: 300px;
+	height: 250px;
+}
+#countdown 
+{
+	text-align: center;
+	font-size: 40px;
+	width: 260px;
+	height: 110px;
+	background-color: lightgreen;
+	margin: 20px 20px;
+}
+#ls
+{
+	font-family: Arial;
+	color: green;
+	font-size: 20px;
+	margin: -77px 30px;
+}
+.footer{
+	margin-top: 0px;
+	background-color: #131b33;
+	height:300px;
+	width: 100%;
+	float: left;
+	
+}
+.par
+{
+	height: auto;
+	display: flex;
+	border: 2px;
+
+}
+.pic
+{
+	color: red;
+	height: 40%;
+	width: 99.5%;
+	border-style:ridge;
+}
+.par .d1 
+{
+	width: 40%;
+	
+	flex:1;
+	justify-content:space-around;
+	border-color: #959191;
+	padding-right: 2%;
+	padding-left: 2%;
+	padding-bottom: 2%;
+}
+.par .d2
+{
+	width: 40%;
+	
+	flex:1;
+	justify-content:space-around;
+	border-color: #959191;
+    padding-right: 2%;
+	padding-left: 2%;
+	padding-bottom: 2%;
+}
+.par .spc
+{
+	width: 2%;
+}
+</style>
+
+	</head>
+	<body>
+	<div>
+		<div class="header">
+			<div class="Logo"><h1>SHOPNHOP</h1></div>
+
+			<div id="myFormContainer">
+  <form id="myForm" action="parser.php" method="post">
+    <div id="searchFieldBox">
+      <input type="text" id="sf" name="query" placeholder="What are you searhing for?" >
+    </div>
+    <div id="searchBtnBox">
+      <input type="submit" src="" name="submit" value="search" id="sb" alt="Btn">
+    </div>
+  </form>
+</div>
+			  <p style="margin:17px 991px;position: absolute; font-family: 'Arial' float: left;background-color: grey;">Your Cart</p><div class="addcart"><input type="image" src="images/cart.png" width="45px" height="40px" ></div> 
+		</div>
+		<div class="navigation_top">
+			<div class="">
+				<ul class="nav-top">
+					<div class="dropdown">
+					<li ><a href="" >Categories</a></li>
+                    <div class="dropdown-content">
+                    	<ul class="nav-cat">
+                    	<li ><a href="">type1</a></li>
+                    	<li ><a href="">type2</a></li>
+                    	<li ><a href="">type3</a></li>
+                    	<li ><a href="">type4</a></li>
+                    	</ul>
+                    </div>
+                    </div>
+                    <ul style="margin-left: 80px; text-align:center; list-style-type: none; ">
+                    <li><a href="">Mens</a></li>
+					<li style=""><a href="" >Womens</a></li>
+					<li><a href="">Electricals</a></li>   
+					<li><a href="">Books</a></li>
+					<li><a href="" onclick="fun()">Today's deal</a></li>            
+				    </ul>
+	             </ul>
+			</div>
+		</div>
+	</div>
+
+
+
+<div class="Au">
+	<div class="abt">
+	<center>
+		<h1>About us</h1></center>
+	</div>
+	<div class="pic">      </div>
+	<br><br>
+	<div class="par">
+	<div class="d1">
+		<div class="p1"><center><h2>We are the technolgyOnline shopping in India at its best</h2></center>
+
+It's no longer just the privilege of a metro city or an urban area to shop online for their favorite products. Flipkart is one online shopping site that has made it possible for consumers even in the remote areas of India to avail products from the best brands at low prices online. Considering the present lifestyle of people, it's no surprise that they prefer to buy online most of the products that they need on a daily basis like clothes for men and women, electronics, mobiles, home appliances, products for personal beauty and care , and the like. The ultimate convenience of having to simply browse through their favorite online shopping website and place orders from the comfort of their home, and get it delivered in the shortest time possible at their doorstep is a service that is unbeatable.
+</div>
+<div class="p2">
+<h2>Easy return policies and quick delivery</h2>
+
+
+These are some of the perks of shopping online at Flipkart. Return policies vary from product to product. For example, you purchase one of the latest mobiles online, say a Redmi Note 4 or Lenovo K6 Power, and you find that, unfortunately,there is some damage that occurred to the phone. We are very particular that not even a small mistake from our side should ruin your shopping experience. Hence, we give you the convenience to return your mobile phone anytime within a certain number of days of your purchase. On the other hand, if you shopped on Flipkart for a pair of ladies' jeans or denim from Levis, Wrangler, Diesel or the like from our extensive online clothing store, but unfortunately they turned out to be of a slightly different shade, we would be happy to return it for you as soon as possible and bring you the outfit that you just wanted.
+
+When you order something online, you would love to get it delivered as soon as possible, and Flipkart stands just for that. Buy your favorite brands at the best prices in India, and get them delivered at your doorstep as quick as possible. Along with using the best logistics service to deliver your order, you can easily track your shipment using your email ID and tracking ID.
+</div>
+</div>
+<div class="spc"></div>
+<div class="d2">
+<div class="p3">
+<h2>Hopnshop Assured- Our promise to deliver quality products</h2>
+
+We want you to avail the best quality products from the best sellers in the country. Hence, Flipkart Assured. Items with the Flipkart Assured badge undergo 6, rigorous quality check processes, right from storage to packaging. You are assured to get home the best quality products with free* delivery.
+
+<h4>Shop online with the best deals & offers</h4>
+
+
+When you find that your favorite dress from, say, UCB or Vero Moda is available online at very low prices under some great offers, nothing could stop you from owning one. Online fashion shopping has become so much more comfortable and affordable with the plethora of deals and offers we bring forth on a daily basis. Exciting both women and men alike, offers and deals do rounds on Flipkart not only with apparel, footwear and lifestyle accessories, but also with laptops, electronics, mobiles, television sets, air conditioners, refrigerators, MP3 players, books and so many more. There is something for everyone and that too from the most sought-after brands like Samsung, Motorola, Dell, HP, Canon, Nikon, Philips, Adidas, Reebok, Nike and so on.
+
+Apart from the best deals & offers online, you also have the option to pay for your most favorite products using our EMI option. Now you need not refrain from purchasing that expensive mobile phone you always wished to own.
+</div>
+<div class="p4">
+<h2>Purchase online referring to our easy buying guides</h2>
+
+Buying an electronic item or any other product with a lot specifications to follow might not always be an easy task. We care for our customers and hence, we have prepared simple, easy-to-follow buying guides for many products. Guides like 'How to buy a smart phone online', 'How to buy a laptop online?', ' How to shop for a refrigerator online?' and many more are designed using videos as well as transcripts so that the customer makes an easy purchase, avoiding all complexities involved.
+
+<h4>Every Order is a wish to be fulfilled - Ab Har Wish Hogi Poori</h4>
+
+
+To Flipkart, a wish is something that it fulfills for every Indian, whenever , wherever. From a massive collection to choose from, at delightful prices to fit into your budget, you choose your box of happiness which will be delivered to you by us no matter how distant you are.
+</div>
+</div>	
+	</div>
+</div>
+
+
+
+
+
+
+
+</div>
+</div>
+
+<div class="footer">
+<div class="div1">
+   <div id="hh">Want to know about Us</div>
+	  <div class="list1">
+		
+			<ul>
+				<li><a href="">About us</a> </li>
+				<li><a href="">Contact us</a></li>
+				<li><a href="">Locate us</a></li>
+				<li><a href="">Ask for help</a></li>
+			</ul>
+		
+	  </div>
+</div>
+	<div class="div2">
+		<div class="hh2">Connect with Us</div>
+		<ul>
+			<li><a href="">Facebook</a></li>
+			<li><a href="">Twitter</a></li>
+			<li><a href="">Instagram</a></li>
+		</ul>
+
+	</div>
+	<div class="div3">
+		<div class="hh3">Need help</div>
+		<ul>
+			<li><a href="">Your Account</a> </li>
+			<li><a href="">Retur Product</a></li>
+			<li><a href="">Secure Purchase</a></li>
+			<li><a href="">Wesite Assistant</a></li>
+		</ul>
+	</div>
+	<div class="div4"></div>
+
+</div>
+<div class="efoot">
+	<div class="icons">
+		<div id="face"><img src="images/fb1.png" alt=""></div>
+		<div id="twit"><img src="images/ins1.png" alt=""></div>
+		<div id="insta"><img src="images/tw1.png" alt=""></div>
+	</div>
+
+
+
+
+</div>
+
+	</body>
+</html>
+

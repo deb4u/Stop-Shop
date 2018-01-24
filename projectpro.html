@@ -1,0 +1,467 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="style.css" type="text/css">
+		<link rel="stylesheet" type="text/css" href="style2.css">
+		<style>
+.modal {
+    display: none;  
+    position: fixed; 
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+}
+.login_page{
+	width: 300px;
+	height: auto;
+	position: absolute;
+	padding: 10px 25px;
+	background: #eee;
+	left: 50%;
+	top: 50%;
+	transform: translateX(-50%) translateY(-70%);
+	border-bottom: 5px solid gray;
+	border-radius: 4px;
+}
+
+.login_logo{
+	width: 135px;
+	height: 135px;
+	position: relative;
+	background: #b999c3;
+	border-radius: 135px;
+	margin: 0 auto;
+	margin-top:40px;
+}
+.login_logo>img{
+	width: 100px;
+	height: 100px;
+	padding: 13px 18px;
+	
+}
+.form
+{
+	width: 100%;
+	position: relative;
+	margin: 25px auto;
+}
+.input
+{
+	width: 100%;
+	height: 50px;
+	position: relative;
+	margin: 15px auto;
+}
+input[type="text"],
+input[type="password"]{
+	width: 100%;
+	height: 50px;
+	padding-right:0;
+	padding-left:10px; 
+	margin: -2px -4px;
+	position: relative;
+	outline: none;
+	border:2px solid #ddd;
+	border-radius: 5px;
+	font-size: 16px;
+	font-family: sans-serif,Arial;
+	color: gray;
+}
+.fa{
+	position: absolute;
+	right: 5px;
+	top: 16px;
+	font-size: 20px;
+	color: gray;
+}
+input[type="text"]:focus,input[type="password"]:focus
+{
+	border:2px solid #94618E;
+}
+input[type="submit"]
+{
+	width: 100%;
+	height: 50px;
+	background: #94618E;
+	font-family: sans-serif,Arial;
+	font-size: 16px;
+	color: #fff;    
+	outline: none;
+	border-radius: 5px;
+	border: 0px;
+	cursor: pointer;
+}
+.error-msg{
+	font-size: 16px;
+	font-family: sans-serif,Arial;
+	color: red;
+	margin-top:50px;
+	display: none;
+}
+.error{
+	position: relative;
+	animation : shake 0.2s;
+}
+.closebtn
+{
+	height: 35px;
+	width: 35px;
+	right: 34px;
+	background-color: #eee;
+	text-align: center;
+    float: right;
+    padding: 0px -23px;
+ 
+
+}
+.closebtn a{
+	text-decoration: none;
+	font-size:27px;
+	font-family:'Arial';
+	color: black;
+	padding: 10px 8px;
+	
+}
+.closebtn a:hover{
+    background-color: grey;
+    height: 35px;
+    width: 35px;
+	font-size:30px;
+	padding: 2px 7px;
+	
+}
+@keyframes shake{
+	0% , 100%{
+		left: 0px;
+	}
+	20% , 80%{
+		left: -15px;
+	}
+	40% , 60%{
+		left:15px;
+	}
+	
+	
+}
+
+.clock{
+	margin: -292px 0px;
+	width: 300px;
+	height: 250px;
+}
+.clock img 
+{
+	width: 300px;
+	height: 250px;
+}
+#countdown 
+{
+	text-align: center;
+	font-size: 40px;
+	width: 260px;
+	height: 110px;
+	background-color: lightgreen;
+	margin: 20px 20px;
+}
+#ls
+{
+	font-family: Arial;
+	color: green;
+	font-size: 20px;
+	margin: -77px 30px;
+}
+.footer{
+	margin-top: 0px;
+	background-color: #131b33;
+	height:300px;
+	width: 100%;
+	float: left;
+	
+}
+	.efoot
+	{
+		background-color: #081029;
+		width: 100%;
+		height: 20%;
+		margin-top: 540px;
+}
+
+
+</style>
+
+	</head>
+	<body>
+	<div>
+		<div class="header">
+			<div class="Logo"><img src="images/stop_shop.png" alt=""></div>
+
+			<div id="myFormContainer">
+  <form id="myForm" action="parser.php" method="post">
+    <div id="searchFieldBox">
+      <input type="text" id="sf" name="query" placeholder="What are you searhing for?" >
+    </div>
+    <div id="searchBtnBox">
+      <input type="submit" src="" name="submit" value="search" id="sb" alt="Btn">
+    </div>
+  </form>
+</div>
+			  <p style="margin:17px 991px;position: absolute; font-family: 'Arial' float: left;background-color: #b999c3;">Your Cart</p><div class="addcart"><input type="image" src="images/cart.png" width="45px" height="40px" ></div> 
+		</div>
+		<div class="navigation_top">
+			<div class="">
+				<ul class="nav-top">
+					<div class="dropdown">
+					<li ><a href="" >Categories</a></li>
+                    <div class="dropdown-content">
+                    	<ul class="nav-cat">
+                    	<li ><a href="wear.html">Kids wear</a></li>
+                    	<li ><a href="books.html">books</a></li>
+                    	<li ><a href="">fashion</a></li>
+                    	<li ><a href="">Cerials</a></li>
+                    	</ul>
+                    </div>
+                    </div>
+                    <ul style="margin-left: 80px; text-align:center; list-style-type: none; ">
+                    <li><a href="">Mens</a></li>
+					<li style=""><a href="ladies_wear.html" >Womens</a></li>
+					<li><a href="mobile.html">Electricals</a></li>   
+					<li><a href="books.html">Books</a></li>
+					<li><a href="" onclick="fun()">Today's deal</a></li>            
+				    </ul>
+	             </ul>
+			</div>
+		</div>
+	</div>
+	<div class="MainPage" >
+          <div id="slider">
+          <figure>
+          	<div class="slide"><img src="images/img1.jpg"></div>
+          	<div class="slide"><img src="images/img2.jpg"></div>
+          	<div class="slide"><img src="images/img3.jpg"></div>
+          	<div class="slide"><img src="images/img4.jpg"></div>
+          </div> 
+          </figure>           
+   <div class="sectionA">
+	     
+		
+		<div  class="main_content" style="">
+		 <div style="height:840px; width: 300px; background-color: #ABF1E9;float: left; margin-top: 0px;margin-left: 30px;" class="box1">
+		 <div class="" style="padding: 103px 54px; position: absolute;">
+		 <h2 style="text-align: center;">Welcome</h2>
+		 <p >Sign in for better experiance</p>
+		 </div><form action="">
+		 	<input type="button" href="" onclick="showModal()" id="sibtn" value="Sign in">
+		 </form>
+		
+		<div class="clock"><img src="images/offer1.jpg" alt="">
+          <div id="countdown"></div>
+          <pre id="ls">Hurry up and grab the offer
+               "NOW"</pre>
+		</div>
+        	</div>
+		 
+		  
+			<div class="box2">
+				<div id="circle" style=" ">
+					<img src="images/sen.png" alt="can't load">
+
+				</div>
+				<div id="circle1">
+					<img src="images/fastrack.jpg" alt="">
+				</div>
+				<div id="circle2">
+					<img src="images/motorola.png" alt="">
+				</div>
+
+			</div>
+			<div class="box3">
+				<div id="square1">
+						
+					<img src="images/hosehold.jpg" alt="can't load">
+
+				
+				</div>
+				<div id="square3">
+					<img src="images/fashion.jpg" alt="can't load">
+				</div>
+				<div id="square2">
+					<img src="images/hosehold.jpg" alt="can't load">
+				</div>
+				<hr style="border: 1px solid grey; width:180px">
+				<p style="padding-left: 20px;font-family:'Ariel';font-size: 20px; "><a href="@" style="text-decoration: none; font-style: italic;color: black;">Browse all at once</a></p>
+			</div>
+			<div class="box4">
+			<div class="bb">
+				<a href=""><img src="images/gucci.jpg" alt="" style="height: 299px;
+	            width: 299px;border-radius: 6px;"></a>
+			</div>
+			<div class="">
+				<hr style="border: 1px solid grey; width:180px;margin-top: 28px;">
+				<p style="font-family:arial;padding: 10px 58px; width:220px;">Offer valid upto 25th April
+				<strong>Grab it now</strong></p>
+				<hr style="border: 1px solid grey; width:180px">
+			</div>
+			<div class="bbb" style="margin-top: 28px;"><a href=""><img src="images/beauty.png" alt="" style="height: 299px;width: 299px;border-radius: 6px;"></a>
+			</div>
+			<div class="">
+				
+				<p style="font-family:arial;padding: 10px 46px; width:220px;">All natural product for your
+				<strong>fair skin</strong></p>
+				
+			</div>
+			</div>
+		
+		</div>
+		
+
+               <div class="modal" id="myModal">
+	
+               
+<div class="login_page">
+<div class="closebtn"><a href="projectpro.html">X</a></div>
+	<div class="login_logo"><img src="images/stop_shop.png" alt=""></div>
+	<section class="form">
+		<form>
+			<div class="input uname">
+				<input type="text" id="username" placeholder="Username" required/>
+				<i class="fa fa-user"></i>
+			</div>
+			<div class="input pass">
+				<input type="password" id="password" placeholder="Password" required/>
+				<i class="fa fa-lock"></i>
+			</div>
+			<a href="#" style="float:right;color:gray;font-size:14px;text-decoration:none;
+			font-family:san-serif,Arial;margin-bottom:10px;">Lost Your Password?</a>
+			<p class="error-msg">Wrong Credential</p>
+			<div>
+				<input type="submit" id="login" value="Log in"  />
+			</div>
+			
+		</form>
+	</section>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+
+<div class="footer">
+<div class="div1">
+   <div id="hh">Want to know about Us</div>
+	  <div class="list1">
+		
+			<ul>
+				<li><a href="aboutus.html">About us</a> </li>
+				<li><a href="">Contact us</a></li>
+				<li><a href="">Locate us</a></li>
+				<li><a href="">Ask for help</a></li>
+			</ul>
+		
+	  </div>
+</div>
+	<div class="div2">
+		<div class="hh2">Connect with Us</div>
+		<ul>
+			<li><a href="">Facebook</a></li>
+			<li><a href="">Twitter</a></li>
+			<li><a href="">Instagram</a></li>
+		</ul>
+
+	</div>
+	<div class="div3">
+		<div class="hh3">Need help</div>
+		<ul>
+			<li><a href="">Your Account</a> </li>
+			<li><a href="">Retur Product</a></li>
+			<li><a href="">Secure Purchase</a></li>
+			<li><a href="">Wesite Assistant</a></li>
+		</ul>
+	</div>
+	<div class="div4"></div>
+
+</div>
+<div class="efoot">
+<div style="float: left;height: 30px;width: 161px;margin-top: 13px;margin-left: 831px"><p style="font-family: impact;color:white;font-size: 30px; ">Share us on:</p></div>
+	<div class="icons">
+		<div id="face"><img src="images/fb1.png" alt=""></div>
+		<div id="twit"><img src="images/ins1.png" alt=""></div>
+		<div id="insta"><img src="images/tw1.png" alt=""></div>
+	</div>
+
+
+
+
+</div>
+	<script>
+	var modal = document.getElementById('myModal');
+  function showModal()
+  {
+     modal.style.display="block";
+  }
+
+
+	</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#login").click(function(){
+		if($("#username").val() == ""){
+			$(".input").addClass("error");
+			$("#username").css({"border":"2px solid red"});
+		}
+		if($("#password").val() == ""){
+			$(".pass").addClass("error");
+		}
+
+	})
+	$(".input").click(function(){
+		$(".input").removeClass("error");
+		$("#username").css({"border":"2px solid #ddd"});
+	})
+})
+</script>
+<script>
+
+var countDownDate = new Date("june 28, 2017 16:00:00").getTime();
+
+
+var x = setInterval(function() {
+
+    var now = new Date().getTime();
+    
+
+    var distance = countDownDate - now;
+    
+
+
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+
+    document.getElementById("countdown").innerHTML =  hours + "h "
+    + minutes + "m " + seconds + "s ";
+     
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML = "EXPIRED";
+    }
+}, 1000);
+</script>
+	</body>
+</html>
+

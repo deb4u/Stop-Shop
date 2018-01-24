@@ -1,0 +1,435 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="style.css" type="text/css">
+		<link rel="stylesheet" type="text/css" href="style2.css">
+		<link rel="stylesheet" type="text/css" href="style3_products.css">
+		<link rel="icon" href="images/icon.ico" type="image/x-icon">
+		<style>
+.modal {
+    display: none;  
+    position: fixed; 
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+}
+.login_page{
+	width: 300px;
+	height: auto;
+	position: absolute;
+	padding: 10px 25px;
+	background: #eee;
+	left: 50%;
+	top: 50%;
+	transform: translateX(-50%) translateY(-70%);
+	border-bottom: 5px solid gray;
+	border-radius: 4px;
+}
+.footer{
+	margin-top: -1px;
+	background-color: #131b33;
+	height:300px;
+	width: 100%;
+	float: left;
+	
+}
+.login_logo{
+	width: 100px;
+	height: 100px;
+	position: relative;
+	background: skyblue;
+	border-radius: 100px;
+	margin: 0 auto;
+	margin-top:40px;
+}
+.login_logo>img{
+	width: 100px;
+	height: 100px;
+	overflow: hidden;
+}
+.form
+{
+	width: 100%;
+	position: relative;
+	margin: 25px auto;
+}
+.input
+{
+	width: 100%;
+	height: 50px;
+	position: relative;
+	margin: 15px auto;
+}
+input[type="text"],
+input[type="password"]{
+	width: 100%;
+	height: 50px;
+	padding-right:0;
+	padding-left:10px; 
+	margin: -2px -4px;
+	position: relative;
+	outline: none;
+	border:2px solid #ddd;
+	border-radius: 5px;
+	font-size: 16px;
+	font-family: sans-serif,Arial;
+	color: gray;
+}
+.fa{
+	position: absolute;
+	right: 5px;
+	top: 16px;
+	font-size: 20px;
+	color: gray;
+}
+input[type="text"]:focus,input[type="password"]:focus
+{
+	border:2px solid #F95E11;
+}
+input[type="submit"]
+{
+	width: 100%;
+	height: 50px;
+	background: #F95E11;
+	font-family: sans-serif,Arial;
+	font-size: 16px;
+	color: #fff;
+	outline: none;
+	border-radius: 5px;
+	border: 0px;
+	cursor: pointer;
+}
+.error-msg{
+	font-size: 16px;
+	font-family: sans-serif,Arial;
+	color: red;
+	margin-top:50px;
+	display: none;
+}
+.error{
+	position: relative;
+	animation : shake 0.2s;
+}
+.closebtn
+{
+	height: 35px;
+	width: 35px;
+	right: 34px;
+	background-color: #eee;
+	text-align: center;
+    float: right;
+    padding: 0px -23px;
+ 
+
+}
+.closebtn a{
+	text-decoration: none;
+	font-size:27px;
+	font-family:'Arial';
+	color: black;
+	padding: 10px 8px;
+	
+}
+.closebtn a:hover{
+    background-color: grey;
+    height: 35px;
+    width: 35px;
+	font-size:30px;
+	padding: 2px 7px;
+	
+}
+@keyframes shake{
+	0% , 100%{
+		left: 0px;
+	}
+	20% , 80%{
+		left: -15px;
+	}
+	40% , 60%{
+		left:15px;
+	}
+	
+	
+}
+._1b img ,._2b img,._3b img,._4b img,._5b img,._6b img
+{
+   height: 273px;
+   width: 206px;
+   margin: 4px 24px;
+   border-radius:20px;
+}
+
+
+</style>
+
+	</head>
+	<body>
+	<div>
+		<div class="header">
+			<div class="Logo"><a href="stop&shop.html"><img src="images/stop_shop.png" alt=""></a></div>
+
+			<div id="myFormContainer">
+  <form id="myForm" action="parser.php" method="post">
+    <div id="searchFieldBox">
+      <input type="text" id="sf" name="query" placeholder="What are you searhing for?" >
+    </div>
+    <div id="searchBtnBox">
+      <input type="submit" src="" name="submit" value="search" id="sb" alt="Btn">
+    </div>
+  </form>
+</div>
+			  <p style="margin:17px 991px;position: absolute; font-family: 'Arial' float: left;background-color: #b999c3;">Your Cart</p><div class="addcart"><input type="image" src="images/cart.png" width="45px" height="40px" ></div> 
+		</div>
+		<div class="navigation_top">
+			<div class="">
+				<ul class="nav-top">
+					<div class="dropdown">
+					<li ><a href="" >Categories</a></li>
+                    <div class="dropdown-content">
+                    	<ul class="nav-cat">
+                    	<li ><a href="books.html">Books</a></li>
+                    	<li ><a href="">Creals</a></li>
+                    	<li ><a href="">Bags</a></li>
+                    	<li ><a href="ladies_wear.html">Clothes</a></li>
+                    	</ul>
+                    </div>
+                    </div>
+                    <ul style="margin-left: 80px; text-align:center; list-style-type: none; ">
+                    <li><a href="">Mens</a></li>
+					<li style=""><a href="ladies_wear.html" >Womens</a></li>
+					<li><a href="electrical.html">Electricals</a></li>   
+					<li><a href="books.html">Books</a></li>
+					<li><a href="" onclick="fun()">Today's deal</a></li>            
+				    </ul>
+	             </ul>
+			</div>
+		</div>
+	</div>
+	<div id="mcon">
+	<div class="side_b">
+			<div class="cate" name="hh">
+			<h1 id="ti" onclick="expandCategory() ">CATEGORY <img class="arimg" src="images/arow.png" alt=""></h1>
+			<div id="dd">
+			<input type="checkbox">Moblie
+			<br>
+			<input type="checkbox">Mobile Acessories
+			<br>
+			<input type="checkbox">Tablet
+			<br>
+			<input type="checkbox">Landline
+			<label for="squaredFour"></label>
+			</div>
+	       </div>
+	       
+	        <h1 id="brand">BRAND</h1>
+	       <div class="brand">
+          	       	
+     <div id="scrl">
+          <input type="checkbox">Lee Cooper<br>	
+          <input type="checkbox">Jhon players<br>
+          <input type="checkbox">Tommy Hilfiger<br>
+          <input type="checkbox">Jhonson<br>
+          <input type="checkbox">Killer x<br>
+          <input type="checkbox">Adidas<br>
+          <input type="checkbox">Puma<br>
+          <input type="checkbox">Ameriaca<br>
+          <input type="checkbox">Verics<br>
+          <input type="checkbox">HRX<br>
+          <input type="checkbox">woodland<br>
+          <input type="checkbox">Calvin Klein<br>
+          <input type="checkbox">Louis Vitton<br>
+          <input type="checkbox">GUESS<br>
+          <input type="checkbox">Prada<br>
+          <input type="checkbox">Hollister<br>
+          <input type="checkbox">Foxconn<br>
+          <input type="checkbox">Forever 21<br>
+          <input type="checkbox">Ameriacan Eagle<br>
+          <input type="checkbox">zara<br>
+          
+          </div>
+          </div>                                        <!--brand ends here*/-->
+
+      <h1>Price range</h1>
+      <div class="p_range">
+      	<input type="radio" name="x1">$50  &nbsp&nbsp- $100<br>
+      	<input type="radio" name="x1">$100 - $200<br>
+      	<input type="radio" name="x1">$200 - $300<br>
+      	<input type="radio" name="x1">$300 - $400<br>
+      	<input type="radio" name="x1">$400 - $500<br>
+      	<input type="radio" name="x1">$500 - $600<br>
+      	<input type="radio" name="x1">$700 - $800<br>
+      	<input type="radio" name="x1">$900 - $1000<br>
+
+
+      </div>
+       <h1>Colour</h1>
+       <div class="color_c">
+       	<input type="checkbox">Red<br>
+       	<input type="checkbox">Blue<br>
+       	<input type="checkbox">Green<br>
+       	<input type="checkbox">Pink<br>
+       	<input type="checkbox">Black<br>
+       	<input type="checkbox">Grey<br>
+       	<input type="checkbox">Orange<br>
+       	<input type="checkbox">Yellow<br>
+       	<input type="checkbox">Purple<br>
+       	<input type="checkbox">Brown<br>
+
+       </div>
+   </div>
+   
+        <div class="contentX">
+           	<div class="_1b bx">
+           	
+           		<img src="girls\g1.jpg" alt="">
+           		<div class="star">
+           		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspEVAHA samphson&nbsp&nbsp&nbsp&nbsp<del style="color: red;">$45</del>&nbsp $30<br>
+           		
+           		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span>&#9733</span><span>&#9733</span><span>&#9733</span><span>&#9733</span><span>&#9734</span>
+           	
+           		</div>
+           		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span name="of">2 OFFER</span> 
+           		</div>           		
+           		
+           	
+           	<div class="_2b bx">
+           		<img src="girls\g2.jpg" alt="">
+           		<div class="star">
+           		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspPastry&nbsp&nbsp&nbsp&nbsp<del style="color: red;">$100</del>&nbsp $80<br>
+           		
+           		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span>&#9733</span><span>&#9733</span><span>&#9733</span><span>&#9734</span><span>&#9734</span>
+           	
+           		</div>
+           		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span name="of">2 OFFER</span> 
+           	</div>
+           	<div class="_3b bx">
+           		<img src="girls\g3.jpg" alt="">
+           		<div class="star">
+           		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspEnyce dress&nbsp&nbsp&nbsp&nbsp<del style="color: red;">$50</del>&nbsp $46<br>
+           		
+           		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span>&#9733</span><span>&#9733</span><span>&#9733</span><span>&#9733</span><span>&#9734</span>
+           	
+           		</div>
+           		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span name="of">3 OFFER</span> 
+           	</div>
+           	<div class="_4b bx">
+           		<img src="girls\g4.jpg" alt="">
+           		<div class="star">
+           		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspRoca wear&nbsp&nbsp&nbsp&nbsp<del style="color: red;">$50</del>&nbsp $46<br>
+           		
+           		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span>&#9733</span><span>&#9733</span><span>&#9733</span><span>&#9733</span><span>&#9734</span>
+           	
+           		</div>
+           		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span name="of">6 OFFER</span>
+           	</div>
+           	<div class="_5b bx">
+           		<img src="girls\g5.jpg" alt="">
+           		<div class="star">
+           		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspMADPAX&nbsp&nbsp&nbsp&nbsp<del style="color: red;">$30</del>&nbsp $25<br>
+           		
+           		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span>&#9733</span><span>&#9733</span><span>&#9733</span><span>&#9733</span><span>&#9734</span>
+           	
+           		</div>
+           		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span name="of">6 OFFER</span>
+           	</div>
+           	<div class="_6b bx">
+           		<img src="girls\g6.jpg" alt="">
+           		<div class="star">
+           		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspbackless dress(red)&nbsp&nbsp&nbsp&nbsp<del style="color: red;">$60</del>&nbsp $50<br>
+           		
+           		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span>&#9733</span><span>&#9733</span><span>&#9733</span><span>&#9733</span><span>&#9734</span>
+           	
+           		</div>
+           		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span name="of">1 OFFER</span>
+           	</div>
+          <div class="paging">
+          	<ul class="ulp">
+          		<li><a href="!">1</a></li>
+          		<li><a href="!">2</a></li>
+          		<li><a href="!">3</a></li>
+          		<li><a href="!">4</a></li>
+          		<li><a href="!">5</a></li>
+          		<li><a href="!">6</a></li>
+          		<li><a href="!">.</a></li>
+          		<li><a href="!">.</a></li>
+          		<li><a href="!">></a></li>
+          	</ul>
+          </div>
+
+        </div>
+
+</div>
+<div class="footer">
+<div class="div1">
+   <div id="hh">Want to know about Us</div>
+	  <div class="list1">
+		
+			<ul>
+				<li><a href="">About us</a></li>
+				<li><a href="">Contact us</a></li>
+				<li><a href="">Locate us</a></li>
+				<li><a href="">Ask for help</a></li>
+			</ul>
+		
+	  </div>
+</div>
+	<div class="div2">
+		<div class="hh2">Connect with Us</div>
+		<ul>
+			<li><a href="">Facebook</a></li>
+			<li><a href="">Twitter</a></li>
+			<li><a href="">Instagram</a></li>
+		</ul>
+
+	</div>
+	<div class="div3">
+		<div class="hh3">Need help</div>
+		<ul>
+			<li><a href="">Your Account</a> </li>
+			<li><a href="">Retur Product</a></li>
+			<li><a href="">Secure Purchase</a></li>
+			<li><a href="">Wesite Assistant</a></li>
+		</ul>
+	</div>
+	<div class="div4"></div>
+
+</div>
+<div class="efoot">
+<div style="float: left;height: 30px;width: 161px;margin-top: 13px;margin-left: 831px"><p style="font-family: impact;color:white;font-size: 30px; ">Share us on:</p></div>
+	<div class="icons">
+		<div id="face"><img src="images/fb1.png" alt=""></div>
+		<div id="twit"><img src="images/ins1.png" alt=""></div>
+		<div id="insta"><img src="images/tw1.png" alt=""></div>
+	</div>
+
+
+
+
+</div>
+	
+	<script>
+	var x=1;
+	
+		function expandCategory()
+		{
+			if(x==1)
+         {
+			document.getElementById("dd").style.display="block";
+	      x=0;	      
+	     }   
+	      else
+	      	{
+	      		document.getElementById("dd").style.display="none";
+	        x=1;
+	        }
+		}
+		
+		</script>
+	</body>
+</html>
+
